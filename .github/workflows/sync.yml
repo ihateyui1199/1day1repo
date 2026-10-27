@@ -1,0 +1,77 @@
+name: Sync Instagram → site
+
+on:
+  schedule:
+    - cron: "17 */3 * * *" # toutes les 3 h : nouveaux posts Instagram
+    - cron: "42 4 * * 1"   # le lundi : rafraîchit étoiles et descriptions
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "Ajout manuel : owner/name ou URL GitHub (vide = lire Instagram)"
+        required: false
+      instagram_url:
+        description: "Lien du post Instagram (facultatif)"
+        required: false
+      date:
+        description: "Date AAAA-MM-JJ (vide = aujourd'hui)"
+        required: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ajout manuel
+        if: ${{ inputs.repo }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ inputs.repo }}
+          IG_URL: ${{ inputs.instagram_url }}
+          DATE: ${{ inputs.date }}
+        run: |
+          set -- --add "$REPO"
+          [ -n "$IG_URL" ] && set -- "$@" --instagram-url "$IG_URL"
+          [ -n "$DATE" ] && set -- "$@" --date "$DATE"
+          node scripts/sync.mjs "$@"
+
+      - name: Nouveaux posts Instagram
+        if: ${{ !inputs.repo }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node scripts/sync.mjs --instagram ${{ github.event.schedule == '42 4 * * 1' && '--refresh' || '' }}
+
+      - name: Commit
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/repos.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "repos: $(node -p 'require("./data/repos.json").repos.at(-1)?.repo ?? "mise à jour"')"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  # Un push fait par GITHUB_TOKEN ne relance pas les autres workflows : on déploie ici.
+  deploy:
+    needs: sync
+    if: needs.sync.outputs.changed == 'true'
+    uses: ./.github/workflows/pages.yml

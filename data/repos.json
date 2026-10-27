@@ -1,0 +1,195 @@
+{
+  "site": {
+    "github": ""
+  },
+  "updated": "2026-10-27T12:30:11.041Z",
+  "repos": [
+    {
+      "date": "2026-10-19",
+      "repo": "sindresorhus/awesome",
+      "url": "https://github.com/sindresorhus/awesome",
+      "description": "😎 Awesome lists about all kinds of interesting topics [NOTE: Pull requests are temporarily disabled until I have a chance to catch up with the existing ones]",
+      "language": null,
+      "stars": 525431,
+      "forks": 37800,
+      "license": "CC0-1.0",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "lists",
+        "resources",
+        "unicorns"
+      ],
+      "homepage": "",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-20",
+      "repo": "excalidraw/excalidraw",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
+      "language": "TypeScript",
+      "stars": 134644,
+      "forks": 15860,
+      "license": "MIT",
+      "topics": [
+        "canvas",
+        "collaboration",
+        "diagrams",
+        "drawing",
+        "hacktoberfest",
+        "productivity",
+        "whiteboard"
+      ],
+      "homepage": "https://excalidraw.com",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-21",
+      "repo": "ollama/ollama",
+      "url": "https://github.com/ollama/ollama",
+      "description": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+      "language": "Go",
+      "stars": 184968,
+      "forks": 18640,
+      "license": "MIT",
+      "topics": [
+        "deepseek",
+        "gemma",
+        "glm",
+        "go",
+        "golang",
+        "gpt-oss",
+        "llama",
+        "llm",
+        "llms",
+        "minimax",
+        "mistral",
+        "muse",
+        "ollama",
+        "qwen"
+      ],
+      "homepage": "https://ollama.com",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-22",
+      "repo": "astral-sh/uv",
+      "url": "https://github.com/astral-sh/uv",
+      "description": "An extremely fast Python package and project manager, written in Rust.",
+      "language": "Rust",
+      "stars": 91239,
+      "forks": 3709,
+      "license": "Apache-2.0",
+      "topics": [
+        "packaging",
+        "python",
+        "resolver",
+        "uv"
+      ],
+      "homepage": "https://docs.astral.sh/uv",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-23",
+      "repo": "tldraw/tldraw",
+      "url": "https://github.com/tldraw/tldraw",
+      "description": "Build infinite canvas apps in React with the tldraw SDK. World's best, top-most agent recommended #1 five star SDK.",
+      "language": "TypeScript",
+      "stars": 51110,
+      "forks": 3585,
+      "license": null,
+      "topics": [
+        "canvas",
+        "collaboration",
+        "design",
+        "diagram",
+        "drawing",
+        "infinite",
+        "multiplayer",
+        "react",
+        "sdk",
+        "sketch",
+        "sync",
+        "whiteboard"
+      ],
+      "homepage": "https://tldraw.dev",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-24",
+      "repo": "BurntSushi/ripgrep",
+      "url": "https://github.com/BurntSushi/ripgrep",
+      "description": "ripgrep recursively searches directories for a regex pattern while respecting your gitignore",
+      "language": "Rust",
+      "stars": 69488,
+      "forks": 4771,
+      "license": "Unlicense",
+      "topics": [
+        "cli",
+        "command-line",
+        "command-line-tool",
+        "gitignore",
+        "grep",
+        "recursively-search",
+        "regex",
+        "ripgrep",
+        "rust",
+        "search"
+      ],
+      "homepage": "",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-25",
+      "repo": "localsend/localsend",
+      "url": "https://github.com/localsend/localsend",
+      "description": "An open-source cross-platform alternative to AirDrop",
+      "language": "Dart",
+      "stars": 96001,
+      "forks": 5420,
+      "license": "Apache-2.0",
+      "topics": [
+        "dart",
+        "file-sharing",
+        "flutter",
+        "flutter-apps"
+      ],
+      "homepage": "https://localsend.org",
+      "instagram": "",
+      "note": "",
+      "example": true
+    },
+    {
+      "date": "2026-10-26",
+      "repo": "jesseduffield/lazygit",
+      "url": "https://github.com/jesseduffield/lazygit",
+      "description": "simple terminal UI for git commands",
+      "language": "Go",
+      "stars": 83441,
+      "forks": 3147,
+      "license": "MIT",
+      "topics": [
+        "cli",
+        "git",
+        "terminal"
+      ],
+      "homepage": "",
+      "instagram": "",
+      "note": "",
+      "example": true
+    }
+  ]
+}

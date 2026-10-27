@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1day1repo — un repo GitHub par jour</title>
+  <meta name="description" content="Les archives de @1day1repo : chaque repo GitHub présenté sur Instagram, un par jour, cherchable et classé par langage.">
+  <meta property="og:title" content="1day1repo — un repo GitHub par jour">
+  <meta property="og:description" content="Chaque repo GitHub présenté sur Instagram, archivé ici, jour après jour.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%230d1117'/><rect x='3' y='3' width='4' height='4' fill='%2339d353'/><rect x='9' y='3' width='4' height='4' fill='%23196c2e'/><rect x='3' y='9' width='4' height='4' fill='%2326a641'/><rect x='9' y='9' width='4' height='4' fill='%2339d353'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap bar-inner">
+      <a href="./" class="logo" aria-label="1day1repo, accueil">
+        <span class="logo-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>1day<b>1</b>repo</span>
+      </a>
+      <nav class="bar-nav">
+        <a href="#archive">archive</a>
+        <a href="#langages">langages</a>
+        <a href="#" target="_blank" rel="noopener" data-github hidden>github ↗</a>
+        <a href="https://www.instagram.com/1day1repo/" target="_blank" rel="noopener" class="ig">@1day1repo ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div class="hero-text">
+        <p class="prompt"><span class="dollar">$</span> git log --since="day 1" | wc -l</p>
+        <h1><span class="day-count" id="dayCount">000</span> repos.<br>Un par jour.</h1>
+        <p class="lead">Chaque repo GitHub présenté sur <a href="https://www.instagram.com/1day1repo/" target="_blank" rel="noopener">@1day1repo</a> finit ici : décrit, classé par langage, prêt à cloner.</p>
+      </div>
+      <figure class="calendar">
+        <figcaption>
+          <span id="calCaption">activité</span>
+          <span class="legend">moins <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> plus</span>
+        </figcaption>
+        <div class="cal-scroll"><div class="cal" id="calendar" role="grid" aria-label="Calendrier des repos publiés"></div></div>
+      </figure>
+    </section>
+
+    <section class="wrap today" id="today" aria-labelledby="todayTitle"></section>
+
+    <section class="wrap block" id="archive">
+      <div class="block-head">
+        <h2><span class="hash">#</span> archive</h2>
+        <div class="tools">
+          <label class="search">
+            <span aria-hidden="true">/</span>
+            <input id="q" type="search" placeholder="chercher un repo, un sujet…" autocomplete="off" aria-label="Chercher un repo">
+          </label>
+          <select id="sort" aria-label="Trier">
+            <option value="day">plus récents</option>
+            <option value="stars">plus étoilés</option>
+            <option value="name">a → z</option>
+          </select>
+        </div>
+      </div>
+      <div class="langs" id="langFilter"></div>
+      <ol class="rows" id="rows"></ol>
+      <p class="nothing" id="nothing" hidden>aucun résultat · essaie un autre mot</p>
+    </section>
+
+    <section class="wrap block" id="langages">
+      <div class="block-head"><h2><span class="hash">#</span> langages</h2></div>
+      <div class="lang-bar" id="langBar"></div>
+      <ul class="lang-list" id="langList"></ul>
+    </section>
+
+    <section class="wrap block">
+      <div class="follow">
+        <p class="prompt"><span class="dollar">$</span> follow --daily</p>
+        <h2>Le prochain repo arrive demain.</h2>
+        <p>Il sera sur Instagram d'abord, puis ici automatiquement.</p>
+        <div class="follow-actions">
+          <a class="btn btn-solid" href="https://www.instagram.com/1day1repo/" target="_blank" rel="noopener">Suivre sur Instagram</a>
+          <a class="btn btn-line" href="#" target="_blank" rel="noopener" data-github hidden>Suivre sur GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <span>1day1repo · <span id="updated"></span></span>
+    <span><a href="https://www.instagram.com/1day1repo/" target="_blank" rel="noopener">instagram</a><a href="#" target="_blank" rel="noopener" data-github hidden> · github</a></span>
+  </footer>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-scrim" data-close></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
+      <button class="drawer-close" data-close aria-label="Fermer">esc</button>
+      <div id="drawerBody"></div>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
